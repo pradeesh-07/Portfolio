@@ -1,0 +1,169 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fff;
+      color: #000;
+      scroll-behavior: smooth;
+    }
+
+    body.dark-mode {
+      background: #121212;
+      color: #fff;
+    }
+
+  /* Ensure all project images have same size */
+  .card-img-top {
+    width: 100%;
+    height: 200px; /* same height for all */
+    object-fit: cover; /* crops/resizes to fill space without distortion */
+  }
+
+
+    .navbar {
+      width: 100%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      /* spreads items */
+      padding: 0 20px;
+      /* reduced padding */
+      background: #fff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
+      /* allows wrapping on small screens */
+    }
+
+    .navbar .profile {
+      flex-shrink: 0;
+    }
+
+    .navbar nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin: 0;
+    }
+
+    .navbar nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar nav ul li a:hover {
+      color: #ff523b;
+    }
+
+    .navbar>div.d-flex {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+
+    .profile {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Offcanvas sidebar */
+    .offcanvas-body {
+      overflow-y: auto;
+      height: 100%;
+    }
+
+    .custom-sidebar .offcanvas-body ul li a {
+      text-decoration: none;
+      color: #333;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s;
+    }
+
+    .custom-sidebar .offcanvas-body ul li a:hover {
+      color: #ff523b;
+    }
+
+    .custom-sidebar .offcanvas-body ul li a::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: #ff523b;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    section {
+      padding: 120px 0 60px 0;
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Profile hover */
+    #about img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Responsive navbar menu for mobile */
+    /* Mobile sidebar width */
+    @media (max-width: 768px) {
+      .custom-sidebar.offcanvas-end {
+        width: 50% !important;
+        /* Sidebar will take 50% of screen width */
+      }
+
+      .custom-sidebar .offcanvas-body {
+        padding-left: 15px;
+        /* Optional padding */
+        padding-right: 15px;
+        /* Optional padding */
+      }
+
+      #about .mt-4 a {
+        display: block;
+        width: 100%;
+        margin-bottom: 25px;
+        /* space between buttons */
+        text-align: center;
+      }
+
+      #about .col-md-6.text-center img {
+        max-width: 350px;
+        /* keeps profile image same size */
+        height: 350px;
+      }
+    }
+
+    /* About section text in dark mode */
+    body.dark-mode #about,
+    body.dark-mode #about h1,
+    body.dark-mode #about h4,
+    body.dark-mode #about p,
+    body.dark-mode #about a {
+      color: #fff !important;
+    }
